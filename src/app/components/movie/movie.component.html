@@ -1,1 +1,39 @@
-<p>movie works!</p>
+<mat-form-field fxLayout="row" fxLayoutAlign="end start">
+  <input
+    matInput
+    placeholder="Search"
+    (keyup)="setValueKeyWord($event.target.value)"
+  />
+</mat-form-field>
+<div fxLayout="row wrap" fxLayoutAlign="space-between center">
+  <mat-card
+    class="mb-1"
+    *ngFor="let movie of movies | filterValue: searchKeyword"
+  >
+    <img
+      mat-card-image
+      src="../../../assets/img/no-image.png"
+      [alt]="movie.title"
+    />
+    <div fxLayout="column" fxLayoutAlign="space-between center">
+      <mat-card-content>
+        <p class="color-red">
+          {{ movie.title | truncate: [28, "..."] }}
+        </p>
+      </mat-card-content>
+
+      <mat-form-field class="qty-width-15">
+        <input matInput placeholder="QTY" />
+      </mat-form-field>
+
+      <mat-card-actions>
+        <button mat-raised-button color="accent">ADD TO CART</button>
+      </mat-card-actions>
+      <div>
+        <p>
+          <b>Price: {{ movie.price }}</b>
+        </p>
+      </div>
+    </div>
+  </mat-card>
+</div>

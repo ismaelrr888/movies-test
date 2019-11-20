@@ -5,4 +5,5 @@ export class Movie {
   price: number;
   description: string;
   image_url: string;
+  name: any;
 }
