@@ -2,13 +2,26 @@
   <input
     matInput
     placeholder="Search"
-    (keyup)="setValueKeyWord($event.target.value)"
+    (keyup)="searchValueKeyWord($event.target.value)"
   />
 </mat-form-field>
+<mat-paginator
+  [length]="total"
+  [pageSize]="itemsPerPage"
+  [pageSizeOptions]="pageSizeOptions"
+  showFirstLastButtons
+>
+</mat-paginator>
 <div fxLayout="row wrap" fxLayoutAlign="space-between center">
   <mat-card
     class="mb-1"
-    *ngFor="let movie of movies | filterValue: searchKeyword"
+    *ngFor="
+      let movie of moviesFilter
+        | filterValue: searchKeyword
+        | slice
+          : paginate.pageIndex * paginate.pageSize
+          : (paginate.pageIndex + 1) * paginate.pageSize
+    "
   >
     <img
       mat-card-image

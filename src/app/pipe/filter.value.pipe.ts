@@ -11,6 +11,8 @@ export class FilterValuePipe implements PipeTransform {
     }
     // filter items array, items which match and return true will be
     // kept, false will be filtered out
-    return items.filter(item => item.title.indexOf(filter) !== -1);
+    return items.filter(item => {
+      item.title.indexOf(filter) !== -1;
+    });
   }
 }
