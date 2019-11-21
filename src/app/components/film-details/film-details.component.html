@@ -1,1 +1,22 @@
-<p>{{ (movie | async).title }}</p>
+<mat-card fxLayout="column" fxLayoutAlign="space-between center">
+  <mat-card-header>
+    <mat-card-title>{{ (movie | async).title }}</mat-card-title>
+  </mat-card-header>
+  <div class="img-div-size">
+    <img
+      mat-card-image
+      src="../../../assets/img/no-image.png"
+      [alt]="movie.title"
+    />
+  </div>
+  <mat-card-content>
+    <p>
+      <b>Pirce: {{ (movie | async).price }}</b>
+    </p>
+    <p><b>genre: </b> {{ (movie | async).genre }}</p>
+    <p><b>Description: </b> {{ (movie | async).description }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button (click)="backToList()" mat-button>BACK</button>
+  </mat-card-actions>
+</mat-card>

@@ -30,4 +30,8 @@ export class FilmDetailsComponent implements OnInit {
       )
     );
   }
+
+  backToList() {
+    this._router.navigate(["/movies"]);
+  }
 }
