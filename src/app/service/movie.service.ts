@@ -1,20 +1,27 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { Observable, of } from "rxjs";
 import { Movie } from "../model/movie";
 
 import { map } from "rxjs/operators";
+import { isNullOrUndefined } from "util";
 
 @Injectable({
   providedIn: "root"
 })
 export class MovieService {
   urlMovies = "/assets/data/MOCK_DATA.json";
+  movies: Movie[];
 
   constructor(private http: HttpClient) {}
 
   getMovies(): Observable<Movie[]> {
-    return this.http.get(this.urlMovies).pipe(map((resp: Movie[]) => resp));
+    if (!isNullOrUndefined(this.movies) && this.movies.length > 0) {
+      return of(this.movies);
+    }
+    return this.http
+      .get(this.urlMovies)
+      .pipe(map((resp: Movie[]) => (this.movies = resp)));
   }
 
   searchMoviesByFilter(filter: string, items: Movie[]) {
@@ -26,5 +33,9 @@ export class MovieService {
     return items.filter(
       item => item.title.toLowerCase().indexOf(filter.toLowerCase()) > -1
     );
+  }
+
+  getMovieById(id: string) {
+    return this.movies.filter(item => (item.id = id));
   }
 }
