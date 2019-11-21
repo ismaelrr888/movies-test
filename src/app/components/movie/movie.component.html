@@ -17,7 +17,6 @@
     class="mb-1"
     *ngFor="
       let movie of moviesFilter
-        | filterValue: searchKeyword
         | slice
           : paginate.pageIndex * paginate.pageSize
           : (paginate.pageIndex + 1) * paginate.pageSize

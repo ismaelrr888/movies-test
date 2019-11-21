@@ -6,10 +6,10 @@ import { MovieComponent } from "../../components";
 import { MovieService } from "../../service";
 import { SharedMaterialModule } from "../shared.material.module";
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { TruncatePipe, FilterValuePipe } from "src/app/pipe";
+import { TruncatePipe } from "src/app/pipe";
 
 @NgModule({
-  declarations: [MovieComponent, TruncatePipe, FilterValuePipe],
+  declarations: [MovieComponent, TruncatePipe],
   imports: [
     CommonModule,
     MovieRoutingModule,
