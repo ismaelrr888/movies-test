@@ -21,7 +21,8 @@ import {
   MatPaginatorModule,
   MatCardModule,
   MatProgressSpinnerModule,
-  MatProgressBarModule
+  MatProgressBarModule,
+  MatSnackBarModule
 } from "@angular/material";
 
 @NgModule({
@@ -46,7 +47,8 @@ import {
     MatPaginatorModule,
     MatCardModule,
     MatProgressSpinnerModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSnackBarModule
   ],
   exports: [
     MatButtonModule,
@@ -67,8 +69,9 @@ import {
     MatPaginatorModule,
     MatCardModule,
     MatProgressSpinnerModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSnackBarModule
   ],
   providers: [MatDatepickerModule]
 })
-export class SharedMaterialModule {}
+export class SharedMaterialModule { }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from 'src/app/service';
+import { Movie } from 'src/app/model/movie';
 
 @Component({
   selector: 'tma-cart',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  movies: Movie[];
+
+  constructor(private _cartService: CartService) { }
 
   ngOnInit() {
+    this.movies = this._cartService.getMovies();
+    console.log(this.movies);
   }
 
 }
