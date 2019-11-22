@@ -8,6 +8,7 @@ import { SharedMaterialModule } from "../shared.material.module";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { TruncatePipe } from "src/app/pipe";
 import { DetailsFilmGuard } from "src/app/resolves/details-film.guard";
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [MovieComponent, TruncatePipe, FilmDetailsComponent],
@@ -15,6 +16,8 @@ import { DetailsFilmGuard } from "src/app/resolves/details-film.guard";
     CommonModule,
     MovieRoutingModule,
     SharedMaterialModule,
+    ReactiveFormsModule,
+    FormsModule,
     FlexLayoutModule
   ],
   providers: [MovieService, DetailsFilmGuard]

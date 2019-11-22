@@ -1,39 +1,35 @@
 <mat-form-field fxLayout="row" fxLayoutAlign="end start">
   <input matInput placeholder="Search" (keyup)="searchValueKeyWord($event.target.value)" />
 </mat-form-field>
-<mat-paginator [length]="total" [pageSize]="itemsPerPage" [pageSizeOptions]="pageSizeOptions" showFirstLastButtons>
+<mat-paginator [length]="total" [pageSize]="paginate.pageSize" [pageSizeOptions]="pageSizeOptions" showFirstLastButtons>
 </mat-paginator>
 <form novalidate [formGroup]="form">
-  <div fxLayout="row wrap" fxLayoutAlign="space-between center" formArrayName="film">
-    <mat-card class="mb-1" *ngFor="
-      let movie of moviesFilter
-        | slice
-          : paginate.pageIndex * paginate.pageSize
-          : (paginate.pageIndex + 1) * paginate.pageSize
-    ">
+  <div fxLayout="row wrap" fxLayoutAlign="space-between center" formArrayName="films">
+    <mat-card class="mb-1" *ngFor="let film of moviesFormGroup.controls; let i = index" [formGroupName]="i">
       <div>
-        <a [routerLink]="['/movies/film', movie.id]">
-          <img mat-card-image src="../../../assets/img/no-image.png" [alt]="movie.title" />
+        <a [routerLink]="['/movies/film', film.get('movie').get('id').value]">
+          <img mat-card-image src="../../../assets/img/no-image.png" [alt]="film.get('movie').get('title').value" />
         </a>
       </div>
       <div fxLayout="column" fxLayoutAlign="space-between center">
         <mat-card-content>
           <p class="color-red">
-            {{ movie.title | truncate: [28, "..."] }}
+            {{ film.get('movie').get('title').value | truncate: [28, "..."] }}
           </p>
         </mat-card-content>
 
         <mat-form-field class="qty-width-15">
-          <input matInput placeholder="QTY" formControlName="qty" />
+          <input matInput placeholder="QTY" formControlName="qty" type="number" min="1" />
         </mat-form-field>
 
         <mat-card-actions>
-          <button mat-raised-button color="accent" (click)="addMovieToCart(movie)">ADD TO
+          <button mat-raised-button color="accent"
+            (click)="addMovieToCart(film.get('movie'), film.get('qty').value)">ADD TO
             CART</button>
         </mat-card-actions>
         <div>
           <p>
-            <b>Price: {{ movie.price }}</b>
+            <b>Price: {{ film.get('movie').get('price').value }}</b>
           </p>
         </div>
       </div>

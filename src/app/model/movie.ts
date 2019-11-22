@@ -6,5 +6,4 @@ export class Movie {
   description: string;
   image_url: string;
   name: any;
-  quantity: number;
 }

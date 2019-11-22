@@ -20,6 +20,7 @@ export class CartService {
     } else {
       this.cartMovies.push(new MovieCart(movie, quantity, movie.price * quantity));
     }
+    console.log(this.cartMovies);
   }
 
   getPos(movie: Movie): number {
