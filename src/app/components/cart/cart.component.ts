@@ -13,6 +13,7 @@ export class CartComponent implements OnInit {
 
   cartMovies: MovieCart[];
   form: FormGroup;
+  totalPrice = 0;
 
   constructor(private _cartService: CartService, private _fb: FormBuilder, private _snackBar: MatSnackBar) { }
 
@@ -21,6 +22,12 @@ export class CartComponent implements OnInit {
     this.form = this._fb.group({
       films: this._fb.array([])
     });
+    this.calculateTotalPrice();
+  }
+
+  calculateTotalPrice() {
+    this.totalPrice = 0;
+    this.cartMovies.forEach(item => this.totalPrice += item.total);
   }
 
   updateCartMovie(cartMovie: MovieCart) {
@@ -32,6 +39,7 @@ export class CartComponent implements OnInit {
     this._snackBar.open(`The Movie was deleted`, "OK", {
       duration: 4000,
     });
+    this.calculateTotalPrice();
   }
 
 }
