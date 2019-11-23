@@ -1,0 +1,52 @@
+.example-card {
+    max-width: 400px;
+  }
+  
+  .title-decoration {
+    color: red;
+    font-weight: 600;
+  }
+  
+  img {
+    background-size: cover;
+    object-fit: cover;
+    width: 14em;
+    height: 12em;
+    margin: auto;
+  }
+  
+  .mb-1 {
+    margin-bottom: 1em;
+  }
+  
+  .qty-width-15 {
+    width: 18%;
+  }
+  
+  .image-width-div {
+    width: 14em;
+    height: 11em;
+  }
+
+  .m-1{
+    margin: 1em;
+  }
+
+  .cursor-pointer{
+    cursor: pointer;
+  }
+
+  .delete-button {
+    background: white;
+    box-shadow: 0px 0px 0px transparent;
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
+}
+
+.delete-button:hover {
+    background: white;
+    box-shadow: 0px 0px 0px transparent;
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
+}
+  

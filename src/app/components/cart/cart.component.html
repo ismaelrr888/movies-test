@@ -1,1 +1,37 @@
-<p>cart works!</p>
+<div fxLayout="row wrap" fxLayoutAlign="space-between center">
+    <mat-card class="mb-1 m-1" *ngFor="let item of cartMovies; let i = index">
+        <div fxLayout="row" fxLayoutAlign="end center">
+            <button (click)="removeCartMovie(i)" class="delete-button">
+                <i class="material-icons cursor-pointer">
+                    remove_circle
+                </i>
+            </button>
+        </div>
+        <div>
+            <img mat-card-image src="../../../assets/img/no-image.png" [alt]="item.movie.title" />
+        </div>
+        <div fxLayout="column" fxLayoutAlign="space-between center">
+            <mat-card-content>
+                <p class="color-red">
+                    {{ item.movie.title | slice:0:28 }}
+                </p>
+            </mat-card-content>
+
+            <mat-form-field class="qty-width-15">
+                <input matInput placeholder="QTY" type="number" min="1" />
+            </mat-form-field>
+
+            <mat-card-actions>
+                <button mat-raised-button color="accent" (click)="updateCartMovie(item)">UPDATE QUANTITY</button>
+            </mat-card-actions>
+            <div>
+                <p>
+                    <b>Quantity: {{ item.quantity }}</b>
+                </p>
+                <p>
+                    <b>Price: {{ item.total }}</b>
+                </p>
+            </div>
+        </div>
+    </mat-card>
+</div>

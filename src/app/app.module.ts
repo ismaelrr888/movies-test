@@ -18,9 +18,11 @@ import { CartService } from './service';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
   ],
   providers: [CartService],
-  bootstrap: [AppComponent]
+  exports: [],
+  bootstrap: [AppComponent],
+  entryComponents: []
 })
 export class AppModule { }

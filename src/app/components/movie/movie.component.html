@@ -14,7 +14,7 @@
       <div fxLayout="column" fxLayoutAlign="space-between center">
         <mat-card-content>
           <p class="color-red">
-            {{ film.get('movie').get('title').value | truncate: [28, "..."] }}
+            {{ film.get('movie').get('title').value | slice:0:28 }}
           </p>
         </mat-card-content>
 
