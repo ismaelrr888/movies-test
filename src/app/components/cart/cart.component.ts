@@ -34,7 +34,7 @@ export class CartComponent implements OnInit {
 
   updateCartMovie(cartMovie: MovieCart, qty: any) {
     cartMovie.quantity = qty.value;
-    cartMovie.total = qty.value * cartMovie.total;
+    cartMovie.total = cartMovie.getTotalPrice();
     this._snackBar.open(`The quantity was updated`, "OK", {
       duration: 3000,
     });
