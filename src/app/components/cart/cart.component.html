@@ -19,14 +19,15 @@
                     {{ item.movie.title | slice:0:28 }}
                 </p>
             </mat-card-content>
+            <form (ngSubmit)="updateCartMovie(item, qty)" #form="ngForm">
+                <mat-form-field class="qty-width-15">
+                    <input matInput placeholder="QTY" type="number" name="qty" value="{{item.quantity}}" min="1" #qty />
+                </mat-form-field>
 
-            <mat-form-field class="qty-width-15">
-                <input matInput placeholder="QTY" type="number" min="1" />
-            </mat-form-field>
-
-            <mat-card-actions>
-                <button mat-raised-button color="accent" (click)="updateCartMovie(item)">UPDATE QUANTITY</button>
-            </mat-card-actions>
+                <mat-card-actions>
+                    <button type="submit" mat-raised-button color="accent">UPDATE QUANTITY</button>
+                </mat-card-actions>
+            </form>
             <div>
                 <p>
                     <b>Quantity: {{ item.quantity }}</b>

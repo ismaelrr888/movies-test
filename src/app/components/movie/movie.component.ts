@@ -95,7 +95,7 @@ export class MovieComponent implements OnInit {
   addMovieToCart(movie: FormGroup, qty: number = 1) {
     this._cartService.addMovies(movie.getRawValue(), qty);
     this._snackBar.open(`The DVD with title ${movie.get('title').value} was added to cart shop`, "OK", {
-      duration: 4000,
+      duration: 3000,
     });
   }
 
