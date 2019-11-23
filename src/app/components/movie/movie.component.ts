@@ -82,7 +82,6 @@ export class MovieComponent implements OnInit {
   }
 
   completeForm() {
-    // tslint:disable-next-line: max-line-length
     this.form = this._fb.group({
       films: this._fb.array([])
     });

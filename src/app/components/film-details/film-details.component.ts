@@ -11,14 +11,14 @@ import { Observable } from "rxjs";
   styleUrls: ["./film-details.component.scss"]
 })
 export class FilmDetailsComponent implements OnInit {
-  movie: Observable<Movie>;
+  movie: any;
   movies: any[];
 
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
     private _movieService: MovieService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this._route.data.subscribe((data: { movies: Movie[] }) => {
