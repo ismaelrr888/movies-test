@@ -1,16 +1,16 @@
-<mat-card fxLayout="column" fxLayoutAlign="space-between center">
+<mat-card fxLayout="column" fxLayoutAlign="space-between center" *ngIf="movie">
   <mat-card-header>
-    <mat-card-title>{{ (movie | async).title }}</mat-card-title>
+    <mat-card-title>{{ movie.title }}</mat-card-title>
   </mat-card-header>
   <div class="img-div-size">
     <img mat-card-image src="../../../assets/img/no-image.png" [alt]="movie.title" />
   </div>
   <mat-card-content>
     <p>
-      <b>Pirce: {{ (movie | async).price }}</b>
+      <b>Pirce: {{ movie.price }}</b>
     </p>
-    <p><b>Genre: </b> {{ (movie | async).genre }}</p>
-    <p><b>Description: </b> {{ (movie | async).description }}</p>
+    <p><b>Genre: </b> {{ movie.genre }}</p>
+    <p><b>Description: </b> {{ movie.description }}</p>
   </mat-card-content>
   <mat-card-actions>
     <button (click)="backToList()" mat-button>BACK</button>

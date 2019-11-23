@@ -21,14 +21,11 @@ export class FilmDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this._route.data.subscribe((data: { movies: Movie[] }) => {
-      this._movieService.movies = data.movies;
+    let id = this._route.snapshot.paramMap.get('id');
+    this._movieService.getMovies().subscribe(response => {
+      this.movies = response;
+      this.movie = this.movies.find(resp => resp.id === id);
     });
-    this.movie = this._route.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-        this._movieService.getMovieById(params.get("id"))
-      )
-    );
   }
 
   backToList() {

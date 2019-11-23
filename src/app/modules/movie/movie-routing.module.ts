@@ -7,10 +7,7 @@ const routes: Routes = [
   { path: "", component: MovieComponent },
   {
     path: "film/:id",
-    component: FilmDetailsComponent,
-    resolve: {
-      movies: DetailsFilmGuard
-    }
+    component: FilmDetailsComponent
   }
 ];
 
@@ -18,4 +15,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class MovieRoutingModule {}
+export class MovieRoutingModule { }
