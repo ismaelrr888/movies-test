@@ -9,9 +9,10 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { CartService } from './service';
+import { TruncatePipe } from './pipe/index';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, TruncatePipe],
   imports: [
     BrowserModule,
     // import HttpClientModule after BrowserModule.

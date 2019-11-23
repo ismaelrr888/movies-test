@@ -49,4 +49,11 @@
     border: 0px solid transparent;
     text-shadow: 0px 0px 0px transparent;
 }
+
+.truncate{
+  white-space: nowrap; 
+  width: 14em; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
   

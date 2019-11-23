@@ -19,7 +19,8 @@
                     {{ item.movie.title | slice:0:28 }}
                 </p>
             </mat-card-content>
-            <form (ngSubmit)="updateCartMovie(item, qty)" #form="ngForm">
+            <form (ngSubmit)="updateCartMovie(item, qty)" #form="ngForm" fxLayout="column"
+                fxLayoutAlign="space-between center">
                 <mat-form-field class="qty-width-15">
                     <input matInput placeholder="QTY" type="number" name="qty" value="{{item.quantity}}" min="1" #qty />
                 </mat-form-field>

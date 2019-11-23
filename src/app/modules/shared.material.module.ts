@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { TruncatePipe } from '../pipe/index';
 
 import {
   MatButtonModule,
@@ -73,7 +72,7 @@ import {
     MatProgressBarModule,
     MatSnackBarModule
   ],
-  declarations: [TruncatePipe],
+  declarations: [],
   providers: [MatDatepickerModule]
 })
 export class SharedMaterialModule { }
